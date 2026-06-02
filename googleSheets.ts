@@ -89,6 +89,8 @@ class GoogleSheetsService {
   }
 */
 async addCustomer(customer: Customer): Promise<void> {
+  console.log("ADD BARU JALAN");
+
   const params = new URLSearchParams({
     action: 'ADD',
     data: JSON.stringify(mapCustomerToRow(customer))

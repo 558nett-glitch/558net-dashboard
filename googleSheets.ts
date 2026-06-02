@@ -1,7 +1,7 @@
 import { Customer } from '../types';
 
 const SCRIPT_URL = import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL || '';
-
+console.log(import.meta.env);
 console.log("SCRIPT_URL =", SCRIPT_URL);
 
 const mapRowToCustomer = (row: string[]): Customer => ({

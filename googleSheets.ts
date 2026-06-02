@@ -80,14 +80,30 @@ class GoogleSheetsService {
     return (result.data || []).map(mapRowToCustomer);
   }
 
-  async addCustomer(customer: Customer): Promise<void> {
+ /* async addCustomer(customer: Customer): Promise<void> {
     const result = await this.postRequest({
       action: 'POST',
       data: mapCustomerToRow(customer),
     });
     if (result.status !== 'success') throw new Error(result.message);
   }
+*/
+async addCustomer(customer: Customer): Promise<void> {
+  const params = new URLSearchParams({
+    action: 'ADD',
+    data: JSON.stringify(mapCustomerToRow(customer))
+  });
 
+  const response = await fetch(
+    `${SCRIPT_URL}?${params}`
+  );
+
+  const result = await response.json();
+
+  if (result.status !== 'success') {
+    throw new Error(result.message);
+  }
+}
   async updateCustomer(id: string, customer: Customer): Promise<void> {
     const result = await this.postRequest({
       action: 'PUT',

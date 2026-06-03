@@ -74,7 +74,7 @@ export const TagihanPage = () => {
           { label: 'Total Tagihan Bulan Ini', value: formatCurrency(tagihan.totalTagihan), icon: <DollarSign size={20} />, color: 'text-red-400', bg: isDark ? 'bg-red-500/10 border-red-500/20' : 'bg-red-50 border-red-200' },
           { label: 'Total Pendapatan Lunas', value: formatCurrency(tagihan.totalPendapatan), icon: <CheckCircle size={20} />, color: 'text-green-400', bg: isDark ? 'bg-green-500/10 border-green-500/20' : 'bg-green-50 border-green-200' },
           { label: 'Pelanggan Menunggak', value: tagihan.menunggak.length, icon: <AlertTriangle size={20} />, color: 'text-yellow-400', bg: isDark ? 'bg-yellow-500/10 border-yellow-500/20' : 'bg-yellow-50 border-yellow-200' },
-          { label: 'Jatuh Tempo 7 Hari', value: tagihan.jatuhTempo.length, icon: <Clock size={20} />, color: 'text-orange-400', bg: isDark ? 'bg-orange-500/10 border-orange-500/20' : 'bg-orange-50 border-orange-200' },
+          { label: 'Jatuh Tempo 30 Hari', value: tagihan.jatuhTempo.length, icon: <Clock size={20} />, color: 'text-orange-400', bg: isDark ? 'bg-orange-500/10 border-orange-500/20' : 'bg-orange-50 border-orange-200' },
         ].map((s, i) => (
           <div key={i} className={cn('p-4 rounded-2xl border', s.bg)}>
             <div className="flex items-center justify-between mb-2">

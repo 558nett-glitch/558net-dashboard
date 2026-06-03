@@ -87,14 +87,14 @@ export const PengaturanPage = () => {
               'p-3 rounded-xl text-xs space-y-1',
               isDark ? 'bg-blue-500/10 border border-blue-500/20 text-blue-300' : 'bg-blue-50 border border-blue-200 text-blue-700'
             )}>
-              <p className="font-semibold">📋 Cara Setup Google Spreadsheet:</p>
+              <p className="font-semibold">:</p>
               <ol className="space-y-1 list-decimal list-inside text-xs">
-                <li>Buat Google Spreadsheet baru</li>
+               /* <li>Buat Google Spreadsheet baru</li>
                 <li>Buat sheet dengan nama <code className="bg-black/20 px-1 rounded">Pelanggan</code></li>
                 <li>Buka <strong>Extensions → Apps Script</strong></li>
                 <li>Paste kode Google Apps Script (lihat README.md)</li>
                 <li>Deploy sebagai Web App</li>
-                <li>Copy URL dan paste di bawah</li>
+                <li>Copy URL dan paste di bawah</li>*/
               </ol>
             </div>
 

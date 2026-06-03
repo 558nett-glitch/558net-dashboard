@@ -41,12 +41,10 @@ export const TagihanPage = () => {
     else if (activeTab === 'jatuh_tempo') list = tagihan.jatuhTempo;
     else if (activeTab === 'lunas') list = tagihan.lunas;
     const q = search.toLowerCase();
-   return list.filter(c =>
-  !q ||
-  String(c.namaCustomer || '').toLowerCase().includes(q) ||
-  String(c.id || '').toLowerCase().includes(q) ||
-  String(c.noWhatsapp || '').includes(q)
-);
+    return list.filter(c =>
+      !q || c.namaCustomer.toLowerCase().includes(q) || c.id.toLowerCase().includes(q) || c.noWhatsapp.includes(q)
+    );
+  }, [customers, activeTab, tagihan, search]);
 
   const handleMarkLunas = async (customerId: string) => {
     await updateCustomer(customerId, { statusPembayaran: 'Lunas' });
@@ -216,18 +214,7 @@ export const TagihanPage = () => {
                           </Button>
                         )}
                         <a
-                          href={`https://wa.me/${String(c.noWhatsapp || '')
-  .replace(/\D/g, '')
-  .replace(/^0/, '62')}?text=${encodeURIComponent(
-  `Halo ${c.namaCustomer},
-
-Tagihan internet 558NET Anda akan segera jatuh tempo pada ${c.tanggalJatuhTempo}.
-
-Mohon melakukan pembayaran tepat waktu.
-
-Terima kasih.
-558NET`
-)}`}
+                          href={`https://wa.me/${c.noWhatsapp.replace(/^0/, '62')}?text=${encodeURIComponent(`Halo ${c.namaCustomer},\n\nTagihan internet 558NET Anda akan segera jatuh tempo pada ${c.tanggalJatuhTempo}.\n\nMohon melakukan pembayaran tepat waktu.\n\nTerima kasih.\n558NET`)}`}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
